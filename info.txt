@@ -1,0 +1,136 @@
+python3 -m venv env1
+source env1/bin/activate
+
+pip install windows-curses
+ERROR: Could not find a version that satisfies the requirement windows-curses (from versions: none)
+ERROR: No matching distribution found for windows-curses
+
+https://stackoverflow.com/questions/69985874/why-is-the-curses-module-not-installing-via-pip
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#curses
+
+python -v
+it gives all sort of weird import messages and goes into python repl
+not sure it will affect things later
+
+python -V
+Python 3.8.10
+
+pip -V
+pip 20.0.2
+
+Downloaded:
+curses-2.2.1+utf8-cp38-cp38-win_amd64
+
+Trying:
+pip install (directory)
+WRONG with backslashes (escape in python):
+pip install C:\Users\kk88\Desktop\CS50P_2023\life\curses-2.2.1+utf8-cp38-cp38-win_amd64.whl
+
+pip install C:/Users/kk88/Desktop/CS50P_2023/life/curses-2.2.1+utf8-cp38-cp38-win_amd64.whl
+ERROR: curses-2.2.1+utf8-cp38-cp38-win_amd64.whl is not a supported wheel on this platform.
+
+pip install C:/Users/kk88/Desktop/CS50P_2023/life/windows_curses-2.3.1-cp311-cp311-win_amd64.whl
+ERROR: windows_curses-2.3.1-cp311-cp311-win_amd64.whl is not a supported wheel on this platform.
+
+pip install C:/Users/kk88/Desktop/CS50P_2023/life/curses-2.2.1+utf8-cp38-cp38-win32.whl
+ERROR: curses-2.2.1+utf8-cp38-cp38-win32.whl is not a supported wheel on this platform.
+
+I don't get how to upgrade python in local env, give up trying curses for now.
+
+
+Try with prettytable, static data set of x,y binary points:
+
+pip install prettytable
+Successfully installed prettytable-3.8.0 wcwidth-0.2.6
+...
+
+Python" is the name of the Python executable, while "py" is a command that is used to invoke
+the Python interpreter on Windows. The version numbers that are displayed when you run these
+commands may be different because they are referring to different versions of Python.
+
+
+py -m pip install --upgrade pip setuptools wheel
+using this instead, still trying to install curses...
+
+Successfully installed pip-23.2.1 setuptools-68.0.0 wheel-0.41.0
+
+python --version or python -V gives 3.8.0
+but on the bottom right of vscode there's 3.10.5 64-bit
+why virtual env gets the older version?
+
+try again installing the curses wheel for v 3.8:
+pip install C:/Users/kk88/Desktop/CS50P_2023/life/curses-2.2.1+utf8-cp38-cp38-win_amd64.whl
+nope
+try this:
+pip install C:/Users/kk88/Desktop/CS50P_2023/life/windows_curses-2.3.1-cp38-cp38-win_amd64.whl
+nope
+try:
+pip install C:/Users/kk88/Desktop/CS50P_2023/life/windows_curses-2.3.1-cp310-cp310-win_amd64.whl
+nope, no clue what to do..
+
+trying last:
+pip install C:/Users/kk88/Desktop/CS50P_2023/life/curses-2.2.1+utf8-cp38-cp38-win32.whl
+
+
+try:
+import platform
+platform.architecture()
+>>('64bit', 'ELF')
+
+....
+ 
+
+pip intall pygame			note: installed both in system python and virtual env
+Successfully installed pygame-2.5.0
+
+(make sure the script is not called pygame)
+
+suppressed ALSA warnings by using pygame.font.init() rather than pygame.init()
+
+downgrading to pygame 2.4.0
+
+always get the same output on terminal and not extra window, what am I doing wrong?
+Hello from the pygame community. https://www.pygame.org/contribute.html
+<Event(32774-WindowShown {'window': None})>
+<Event(32775-WindowHidden {'window': None})>
+<Event(32774-WindowShown {'window': None})>
+<Event(32775-WindowHidden {'window': None})>
+<Event(32774-WindowShown {'window': None})>
+
+-------------------------
+
+tryng things from this:
+https://www.youtube.com/watch?v=YAmn4Bhkr3M
+
+in cmd prompt: pip install pygame
+Successfully installed pygame-2.5.0
+
+
+it works in cmd but no in wsl terminal, not sure why (cmd is running in the main python environment I think)
+
+---
+21Sep2023
+all good, trying to submit, need to run tests:
+Installing collected packages: tomli, pluggy, iniconfig, exceptiongroup, pytest
+  WARNING: The scripts py.test.exe and pytest.exe are installed in 'C:\Users\kk88\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed exceptiongroup-1.1.3 iniconfig-2.0.0 pluggy-1.3.0 pytest-7.4.2 tomli-2.0.1 
+
+Installed pytest but struggling to 'see it':
+trying to add the dir to PATH (https://fabianlee.org/2021/12/23/vscode-add-a-directory-to-the-terminal-path/):
+“terminal.integrated.env.windows”:{"PATH":"C:/Users/kk88/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0/LocalCache/local-packages/Python310/Scripts:${env:PATH}"}
+added to settings.json but still not working..
+
+try in wsl rather than cmd:
+source env1/bin/activate
+life-game_fg3.py runs, I see the count increasing (no pygame window though, no game, ALSA lib issues..);
+pytest test_life-game.py > not found, try the suggestion:
+sudo apt install python-pytest
+putting in sudo password but nothing happens?? try:
+pip install python-pytest . . . no
+pip install -U pytest . . . Successfully installed exceptiongroup-1.1.3 iniconfig-2.0.0 packaging-23.1 pluggy-1.3.0 pytest-7.4.2 tomli-2.0.1
+
+https://python-notes.curiousefficiency.org/en/latest/python_concepts/import_traps.html
+
+
+

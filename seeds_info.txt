@@ -1,0 +1,41 @@
+NAME	TYPE	SIZE	~LIFESPAN
+
+seed1	blinker	4x6	-
+
+seed2	2 gliders, 2 blinkers	30x50	170
+
+seed3	Gosper's GG		50x30	720
+
+seed4	Pulsar, Pentadecathlon	30x50	-
+seed4-a	(added a glider)	"	90
+seed4-b (added a LWSS)		"	90
+seed4-c (added a 2nd LWSS)	"	90
+seed4-c2 (replaced a LWSS with a MWSS)	"	1150
+
+seed5	BLSE wrongly draw (1)	40x30	30
+seed5-a	2 BLSE wrongly drawn (1)	40x30	1370	
+seed5-b 1 BLSE wrongly drawn (2)	40x30	20
+seed5-c correct BLSE (IG)	40x30	780
+
+seed6	BLSE (single row)	50x30	250
+seed6-a	BLSE (single row)	34x60	110
+seed6-a2	BLSE (single row)	35x56	200
+seed6-a3	3 BLSE (single row)	35x56	390
+seed6-a4	BLSE (single row)	35x60	240
+seed6-a5	BLSE (single row)	34x60	100
+
+seed7-a Simkin's GG (wrong)	40x30	1360
+seed7-b	Simkin's GG		90x50	1560
+	BUG??? Why do some gliders just die, including the last one quite spectacularly?	
+
+seed8	BLSE-5x5	90x50	1100
+seed8-a	BLSE-5x5 + HWSS	90x50	1050
+seed8-b BLSE-5x5 + HWSS + Gosper-GG	90x50	850
+	Last glider here also self destroys like in 7-b?!
+
+
+[GG: glider gun; LWSS: light-weight sapce ship; MWSS: mid-weight space ship;
+BLSE: block-laying switch engine; IG: infinite growth
+
+
+
